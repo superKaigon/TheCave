@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
-
-import React, { Component } from 'react';
+import App from './components/app';
 
 class Routes extends Component {
 
