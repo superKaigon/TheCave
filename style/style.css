@@ -1,3 +1,16 @@
-.pageCourante {
+.container{
+	width: auto;
+  height: 100vh;
+}
+
+.container > div {
+	height: 100%;
+}
+.container > div > .row{
+	height: 10%;
+}
+
+.container > div > .pageCourante {
 	background-color: rgb(182, 155, 76);
+	height: 90%;
 }

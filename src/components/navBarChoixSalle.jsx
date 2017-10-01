@@ -7,9 +7,9 @@ const NavBarChoixSalle = () => {
 	return (
 		<nav className='row'>
 			<div className='col-md-12'>
-				<button className='col-md-4'>Salle 1</button>
-				<button className='col-md-4'>Salle 2</button>
-				<button className='col-md-4'>Salle 3</button>
+				<button className='col-md-4 btn btn-secondary'>Salle 1</button>
+				<button className='col-md-4 btn btn-secondary'>Salle 2</button>
+				<button className='col-md-4 btn btn-secondary'>Salle 3</button>
 			</div>
 		</nav>
 	)
