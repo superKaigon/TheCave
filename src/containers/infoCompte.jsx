@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { selectUser } from '../actions/index'
-import { bindActionCreators } from 'redux'
 
 class InfoCompte extends Component {
 
@@ -28,8 +27,4 @@ function  mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({selectUser:selectUser},dispatch)
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(InfoCompte)
+export default connect(mapStateToProps)(InfoCompte)

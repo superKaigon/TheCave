@@ -1,5 +1,4 @@
 import React from 'react';
-import ElementNavBar from '../containers/ElementNavBar';
 import InfoCompte from '../containers/infoCompte';
 
 const NavBar = () => {
