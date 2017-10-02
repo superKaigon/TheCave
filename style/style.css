@@ -14,3 +14,11 @@
 	background-color: rgb(182, 155, 76);
 	height: 90%;
 }
+
+.container > div > .pageCourante > div > .row > ul > li {
+	margin : auto;
+	margin-top: 5em;
+	margin-bottom: 5em;
+	list-style-type: none;
+
+}

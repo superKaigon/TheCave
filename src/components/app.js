@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './navBar';
-import Salle from './salle';
+import Salle1 from './salle1';
 import PageCourante from './pageCourante';
 
 export default class App extends Component {

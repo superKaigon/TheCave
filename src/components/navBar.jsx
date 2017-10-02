@@ -12,7 +12,7 @@ const NavBar = () => {
 				<button type="button" className="btn btn-secondary">Bla bla</button>
 			</div>
 			<div className='col-md-4'>
-				Bonjour Jean-Louis On
+				<InfoCompte/>
 			</div>
 
 		</nav>
