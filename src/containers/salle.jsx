@@ -8,7 +8,6 @@ class Salle extends Component {
 	render() {
 		const { salle } = this.props
 		const {table} = this.props
-		console.log({table})
 		if (!salle) {
 			return (
 				<div>Sélectionner une salle</div>
