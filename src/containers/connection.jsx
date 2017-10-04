@@ -1,77 +1,85 @@
-import React, { Component } from 'react'
-import { reduxForm, Field } from 'redux-form'
-import { Link, browserHistory } from 'react-router'
-import {bindActionCreators} from "redux" 
-import {connect} from "react-redux"
+import React, { Component } from 'react';
+import {reduxForm, Field} from 'redux-form'
 import {selectUser} from '../actions/index'
+import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { SubmissionError } from 'redux-form'
 
 const formConfig = {
-    form: 'Connection',
-    initialValues: { identifiant: 'adresse email', password: 'mot de passe' },
+    form:'connctionFrom',
     fields: ['identifiant', 'password'],
     validate: validate
+
 }
+const renderField = ({ input, label, type, meta: { touched, error } }) =>
+<div>
+  <label>
+    {label}
+  </label>
+  <div>
+    <input {...input} placeholder={label} type={type} />
+    {touched &&
+      error &&
+      <span>
+        {error}
+      </span>}
+  </div>
+</div>
+
 
 class Connection extends Component {
-    render() {
-        const { error, fields: { identifiant, password }, handleSubmit, fields } = this.props
-        return (
-            <form onSubmit={handleSubmit(this.selectUser.bind(this))} className='default_margin_top'>
-                <div>
-                    <label>Identifiant</label>
-                    <input className="form-control" type="text" {...fields.identifiant} />
-                    <div className="text-help"></div>
-                </div>
-                <div>
-                    <label >Mot de passe</label>
-                    <input className="form-control" type="text" {...fields.password} />
-                    <div className="text-help"></div>
-                </div>
-                <button type="submit" className="btn btn-primary" disabled={this.props.invalid}>Connexion</button>
-            </form>
-        )
-    }
+  render () {
+    const {error, fields : {identifiant, password}, handleSubmit, fields, users} = this.props
+    return (
+      <form onSubmit={handleSubmit(this.selectUser.bind(this))}>
+        <Field 
+        label = 'firstname' 
+        type = 'text'
+        component = {renderField}
+        name = 'firstname'/>
+        <Field 
+        label = 'password' 
+        type = 'text'
+        component = {renderField}
+        name = 'password'/>
+        <button type="submit"  className="btn btn-primary" disabled={this.props.invalid}>Connexion</button>  
 
-    selectUser(user) {
-        this.props.selectUser(user)
-        browserHistory.push('/')
-    }
+      </form>
+    )
+  }
+  selectUser(values) {
+     const user = this.props.users.filter((user) => {
+            if(user.firstname == values){
+                return console.log(user)  
+            }
+            
+        })
+  }
+
 }
 
-const validate = (values) => {
-    const error = {}
-    this.props.users.filter((user) => {
-        if (value.identifiant = user.identifiant){
-            return true
-        }else {
-            return false
-        }
-    })
-    if (!user) {
-        error.identifiant = "pas d'adresse mail correspondante"
+function validate (values) {
+  const errors = {}
+   if(!values.firstname ){
+        errors.firstname = "Le titre est requis"
     }
-    this.props.users.filter((user) => {
-        if (value.password = user.password){
-            return true
-        }else {
-            return false
-        }
-    })
-    if (!user) {
-        error.password = 'mot de passe incorrect'
+     if(!values.password ){
+        errors.password = "La description est requise"
     }
-    return error
-    
+    return errors;
+
 }
+
+
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users,
+        users : state.users,
+        myUser : state.activeUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators ({selectUser}, dispatch)
+    return bindActionCreators ({selectUser:selectUser}, dispatch)
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(formConfig)(Connection))

@@ -7,9 +7,7 @@ import {Link} from 'react-router'
 class InfoCompte extends Component {
     
     render() {
-        console.log(this.currentModal)
         const { user } = this.props
-        const {currentModal} = this.props
         if (!user) {
             return (
                 <div>
