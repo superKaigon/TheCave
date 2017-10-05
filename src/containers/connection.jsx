@@ -4,6 +4,7 @@ import {selectUser} from '../actions/index'
 import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
 import { SubmissionError } from 'redux-form'
+import {browserHistory} from 'react-router'
 
 const formConfig = {
     form:'connctionFrom',
@@ -29,8 +30,9 @@ const renderField = ({ input, label, type, meta: { touched, error } }) =>
 
 class Connection extends Component {
   render () {
-    const {error, fields : {identifiant, password}, handleSubmit, fields, users} = this.props
+    const {error, fields : {identifiant, password}, handleSubmit, fields} = this.props
     return (
+      
       <form onSubmit={handleSubmit(this.selectUser.bind(this))}>
         <Field 
         label = 'firstname' 
@@ -47,13 +49,13 @@ class Connection extends Component {
       </form>
     )
   }
-  selectUser(values) {
-     const user = this.props.users.filter((user) => {
-            if(user.firstname == values){
-                return console.log(user)  
-            }
-            
-        })
+  selectUser (values) {
+    const user = this.props.users.filter((user) => {
+      if (user.firstname == values.firstname && user.password == values.password) {
+        this.props.selectUser(user)
+        browserHistory.push('/')
+      }
+    })
   }
 
 }
@@ -61,10 +63,10 @@ class Connection extends Component {
 function validate (values) {
   const errors = {}
    if(!values.firstname ){
-        errors.firstname = "Le titre est requis"
+        errors.firstname = "L'identifiant est requis"
     }
      if(!values.password ){
-        errors.password = "La description est requise"
+        errors.password = "Le mot de passe est requise"
     }
     return errors;
 
