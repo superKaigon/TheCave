@@ -22,3 +22,13 @@
 	list-style-type: none;
 
 }
+
+.container > div > .navbar {
+	color : white;
+}
+
+.container > div > .pageCourante > div > .row > ul > li > img{
+	width: 225px;
+	height: 214px;
+
+}

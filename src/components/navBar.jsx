@@ -4,11 +4,11 @@ import InfoCompte from '../containers/infoCompte';
 const NavBar = () => {
 
 	return (
-		<nav className='row'>
+		<nav className="navbar navbar-dark bg-dark row">
 			<div className='col-md-8'>
-				<button type="button" className="btn btn-secondary">Blabla</button>
+				<h1>THE CAVE</h1>
 				<button type="button" className="btn btn-secondary">Contact Us</button>
-				<button type="button" className="btn btn-secondary">Bla bla</button>
+				<button type="button" className="btn btn-secondary">Qui Sommes-nous ?</button>
 			</div>
 			<div className='col-md-4'>
 				<InfoCompte/>

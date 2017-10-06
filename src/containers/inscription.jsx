@@ -5,11 +5,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { SubmissionError } from 'redux-form'
-import {Link} from 'react-router'
 
 
 
-class Connection extends Component {
+class Inscription extends Component {
     renderField = ({ input, label, type, meta: { touched, error } }) =>
         <div>
             <label>
@@ -36,6 +35,18 @@ class Connection extends Component {
                     label="Firstname"
                 />
                 <Field
+                    name="lastname"
+                    type="text"
+                    component={this.renderField}
+                    label="Lastname"
+                />
+                <Field
+                    name="email"
+                    type="text"
+                    component={this.renderField}
+                    label="Email"
+                />
+                <Field
                     name="password"
                     type="text"
                     component={this.renderField}
@@ -48,37 +59,43 @@ class Connection extends Component {
                 <div>
                     <button type="submit" className='btn btn-secondary' disabled={submitting}>
                         Log In
-                    </button>
+        </button>
                     <button type="button" className='btn btn-secondary' disabled={pristine || submitting} onClick={reset}>
                         Clear Values
-                    </button>
+        </button>
                 </div>
-                <div><Link to='inscription'><button type="button" className="btn btn-primary">Inscription</button></Link></div>
             </form>
         )
     }
     submit = (values) => {
         // simulate server latency
-        const user = this.props.users.filter((user) => {
-            if (user.firstname == values.firstname && user.password == values.password) {
-                this.props.selectUser(user)
-                browserHistory.push('/')
-            }
-        })
-        if (!user[0]) {
+        if (!values.firstname) {
             throw new SubmissionError({
-                firstname: 'Wrong firstname',
-                password: 'or wrong password',
-                _error: 'Login Fail'
+                firstname: 'Ce champ doit être renseigner'
             })
+        }else if (!values.lastname) {
+            throw new SubmissionError({
+                lastname: 'Ce champ doit être renseigner'
+            })
+        }else if (!values.email) {
+            throw new SubmissionError({
+                email: 'Ce champ doit être renseigner'
+            })
+        }else if (!values.password) {
+            throw new SubmissionError({
+                password: 'Ce champ doit être renseigner'
+            })
+        }else {
+            const user = {firstname: values.firstname, lastname: values.lastname, email: values.email, password: values.password }
+            this.props.selectUser(user)
+            browserHistory.push('/')
         }
 
-
-
     }
-
-
 }
+
+
+
 
 
 const mapStateToProps = (state) => {
@@ -93,4 +110,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'ConnectionForm' })(Connection))
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'InscriptionForm' })(Inscription))
