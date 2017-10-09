@@ -6,7 +6,6 @@ import LocationList from './locationList'
 
 class Salle extends Component {
 	render() {
-		console.log(this.props)
 		const { salle, table } = this.props
 		if (!salle) {
 			return (

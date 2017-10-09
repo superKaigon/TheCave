@@ -1,0 +1,24 @@
+1 
+    Tentative de démarrage par l'intégraton de l'objet User. Echec
+
+2
+    Par de la base et pose simplement l'html est les différents composants de la page
+
+3
+    Intègration de la logique entre les éléments. Intégratin des reducers salle, table et User
+
+4
+    Mise en place du formulaire. 
+        Problème renconter : 
+            Le formulaire en soit, intégration de redux form. Complexité de gérer le lien avec le state
+            ainsi que la gestion des erreurs et du clear des values. Je suis du coup parti sur plusieurs 
+            type de modèle de formulaire. J'ai retenu un qui serialisé tout ses comportement et ce qui le composait. 
+            J'ai ensuité pris le parti d'intégrer le bouton de clear de value pour donner la possibilité d'effacer lors d'erreur 
+            indiquer par des messages d'erreurs. 
+5
+    La déconnexion n'est pas encore gérer si ce n'est pas un lien vers le formulaire de connection. Il est prévu de la gérer avec 
+    une action reset qui mettrait les active (user, table, salle) seter à un objet vide. La mise en place de la modale pour les formulaire de connection 
+    et d'inscription. L'inscription est elle gérer simplement par un formulaire qui set l'active user. Ce user ne s'enregistre pas.
+6
+    Prévu de travailler le bootstrap et le css cette semaine. Cela a pris 1 semaine et je pense qu'il me faudrait actuellement une journée 
+    pour le refaire.

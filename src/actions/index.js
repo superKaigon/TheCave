@@ -1,21 +1,21 @@
 export const selectSalle = (salle) => {
   return {
-      type : 'SALLE_SELECTED',
-      payload : salle
+    type: 'SALLE_SELECTED',
+    payload: salle
   }
 }
 
 export const selectTable = (table) => {
   return {
-      type : 'TABLE_SELECTED',
-      payload : table
+    type: 'TABLE_SELECTED',
+    payload: table
   }
 }
 
 export const selectUser = (user) => {
   return {
-      type : 'USER_SELECTED',
-      payload : user
+    type: 'USER_SELECTED',
+    payload: user
   }
 }
 

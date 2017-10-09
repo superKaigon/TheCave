@@ -83,8 +83,7 @@ class Connection extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users,
-        myUser: state.activeUser
+        users: state.users
     }
 }
 const mapDispatchToProps = (dispatch) => {
