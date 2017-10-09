@@ -19,4 +19,11 @@ export const selectUser = (user) => {
   }
 }
 
+export const selectStatus = (status) => {
+  return {
+    type: 'STATUS_SELECTED',
+    payload: status
+  }
+}
+
 
