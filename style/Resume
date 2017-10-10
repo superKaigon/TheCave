@@ -16,9 +16,12 @@
             J'ai ensuité pris le parti d'intégrer le bouton de clear de value pour donner la possibilité d'effacer lors d'erreur 
             indiquer par des messages d'erreurs. 
 5
-    La déconnexion n'est pas encore gérer si ce n'est pas un lien vers le formulaire de connection. Il est prévu de la gérer avec 
-    une action reset qui mettrait les active (user, table, salle) seter à un objet vide. La mise en place de la modale pour les formulaire de connection 
-    et d'inscription. L'inscription est elle gérer simplement par un formulaire qui set l'active user. Ce user ne s'enregistre pas.
+    La déconnexion est gérer par l'appel des différents fonctions permettant de sélectionner un objet du state. Il set donc user, table et salle avec un objet vide 
+    et renvoie vers la page de connection
+
 6
+    Mise en place des pages contact us et qui sommes nous avec un mise a jour de la page sans router grace a un status de type string entrer dans le state
+
+7
     Prévu de travailler le bootstrap et le css cette semaine. Cela a pris 1 semaine et je pense qu'il me faudrait actuellement une journée 
-    pour le refaire.
+    pour le refaire. Mise en place aussi de la modale pour les formulaires de connection et d'inscription. Avec les tutos udemy, cela devrait prendre une journée maximum.
