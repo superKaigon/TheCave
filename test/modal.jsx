@@ -4,7 +4,7 @@ import {
     unmountComponentAtNode
 } from 'react-dom';
 
-export default class extends React.Component {
+export default class Modal extends React.Component {
     static displayName = 'ReactPortal';
 
     static propTypes = {

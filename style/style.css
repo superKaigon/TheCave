@@ -35,10 +35,10 @@
 
 body .modal {
 	position: fixed;
-	top: 40px;
-	left: 40px;
-	right: 40px;
-	bottom: 40px;
+	top: 10%;
+	left:65%;
+	right: 10%;
+	bottom: 65%;
 	border: 1px solid #ccc;
 	background: #fff;
 	overflow: auto;
@@ -46,4 +46,22 @@ body .modal {
 	outline: none;
 	padding: 20px;
 	display: block;
+	animation-duration: 250ms;
+	animation-name: slidein;
+	
+  }
+
+  @keyframes slidein {
+	from {
+	  left: 65%; 
+	  right: 100%;
+	  top :10%;
+	  bottom:100%;
+	} 
+	to {
+		top: 10%;
+		left:65%;
+		right: 10%;
+		bottom: 65%;
+	}
   }
