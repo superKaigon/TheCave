@@ -10,9 +10,6 @@ class InfoCompte extends Component {
 
     render() {
         const { user } = this.props
-        const resetUser = null
-        const resetTable = null
-        const resetSalle = null
 
         if (!user) {
             return (
@@ -26,15 +23,15 @@ class InfoCompte extends Component {
             <div>
 
                 <div key={user.lastname}>Bonjour {user.firstname}</div>
-                <Link to='connection'><button type="button" className="btn btn-secondary" onClick={() => this.resetActive(resetUser, resetTable, resetSalle)}>Déconnexion</button></Link>
+                <Link to='connection'><button type="button" className="btn btn-secondary" onClick={() => this.resetActive()}>Déconnexion</button></Link>
 
             </div>
         )
     }
-    resetActive = (user, table, salle) => {
-        this.props.selectUser(user)
-        this.props.selectSalle(salle)
-        this.props.selectTable(table)
+    resetActive = () => {
+        this.props.selectUser(null)
+        this.props.selectSalle(null)
+        this.props.selectTable(null)
         browserHistory.push('connection')
     }
 

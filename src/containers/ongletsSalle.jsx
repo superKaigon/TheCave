@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { selectSalle } from '../actions/index'
+import { selectSalle, selectTable } from '../actions/index'
 
 
 
@@ -16,7 +16,7 @@ class OngletsSalle extends Component {
                             return (
                                 <button className='col-md-4 btn btn-secondary'
                                     key={salle.id}
-                                    onClick={() => this.props.selectSalle(salle)}
+                                    onClick={() => this.selectSalle(salle)}
                                     disabled = {salle.full == true}>
                                     Salle {salle.id}
                                 </button>
@@ -28,6 +28,10 @@ class OngletsSalle extends Component {
             </nav>
         )
     }
+    selectSalle (salle) {
+        this.props.selectSalle(salle),
+        this.props.selectTable(null)
+    }
 
 }
 
@@ -38,7 +42,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ selectSalle: selectSalle }, dispatch)
+    return bindActionCreators({ selectSalle: selectSalle, selectTable:selectTable }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OngletsSalle)

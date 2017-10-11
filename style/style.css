@@ -11,8 +11,9 @@
 }
 
 .container > div > .pageCourante {
-	background-color: rgb(182, 155, 76);
+	background-color: rgb(0, 0, 0);
 	height: 90%;
+	color : white;
 }
 
 .container > div > .pageCourante > div > .row > ul > li {
@@ -64,4 +65,22 @@ body .modal {
 		right: 10%;
 		bottom: 65%;
 	}
+  }
+
+  body .modal2 {
+	position: fixed;
+	top: 10%;
+	left:65%;
+	right: 10%;
+	bottom: 59%;
+	border: 1px solid #ccc;
+	background: #fff;
+	overflow: auto;
+	border-radius: 4px;
+	outline: none;
+	padding: 20px;
+	display: block;
+	animation-duration: 250ms;
+	animation-name: slidein;
+	
   }

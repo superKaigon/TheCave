@@ -29,7 +29,7 @@ class Inscription extends Component {
         const { error, handleSubmit, pristine, reset, submitting } = this.props
         return (
             <Modal>
-                <div className='modal'>
+                <div className='modal2'>
                     <form className='default_margin_top' onSubmit={handleSubmit(this.submit.bind(this))}>
                         <Field
                             name="firstname"
