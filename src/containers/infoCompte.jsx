@@ -14,7 +14,7 @@ class InfoCompte extends Component {
         if (!user) {
             return (
                 <div>
-                   <Link to='connection'><button type="button" className="btn btn-secondary" onClick = {() => this._onButtonClick} >Connexion</button></Link>
+                  <Link to='connection'><button type="button" className="btn btn-secondary">Connexion</button></Link>
                     <Link to='inscription'><button type="button" className="btn btn-secondary">Inscription</button></Link>
                 </div>
             )
@@ -34,6 +34,9 @@ class InfoCompte extends Component {
         this.props.selectTable(null)
         browserHistory.push('connection')
     }
+/*     _onButtonClick () {
+      return <Connection/>
+    } */
 
 }
 

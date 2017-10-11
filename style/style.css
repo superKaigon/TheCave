@@ -1,6 +1,8 @@
 .container{
-	width: auto;
-  height: 100vh;
+	width: 100%;
+	height: 100vh;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .container > div {
@@ -24,8 +26,12 @@
 
 }
 
-.container > div > .navbar {
-	color : white;
+.container > div > .navbar.row {
+	background-color : white;
+}
+
+.container > div > .navbar.row > .col-md-4 {
+	text-align: -webkit-right;
 }
 
 .container > div > .pageCourante > div > .row > ul > li > img{
@@ -37,8 +43,8 @@
 body .modal {
 	position: fixed;
 	top: 10%;
-	left:65%;
-	right: 10%;
+	left:75%;
+	right: 0%;
 	bottom: 65%;
 	border: 1px solid #ccc;
 	background: #fff;
@@ -49,20 +55,20 @@ body .modal {
 	display: block;
 	animation-duration: 250ms;
 	animation-name: slidein;
-	
+	text-align: -webkit-center;
   }
 
   @keyframes slidein {
 	from {
-	  left: 65%; 
+	  left: 75%; 
 	  right: 100%;
 	  top :10%;
 	  bottom:100%;
 	} 
 	to {
 		top: 10%;
-		left:65%;
-		right: 10%;
+		left:75%;
+		right: 0%;
 		bottom: 65%;
 	}
   }

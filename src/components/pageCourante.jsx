@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBarChoixSalle from './NavBarChoixSalle';
 import Salle from '../containers/salle';
 
 
@@ -9,8 +8,7 @@ class PageCourante extends Component {
 
     return (
       <div>
-        <NavBarChoixSalle />
-        <Salle />
+        {this.props.children}
       </div>
     )
 
