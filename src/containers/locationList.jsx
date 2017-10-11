@@ -40,6 +40,7 @@ class LocationList extends Component {
                 return table
             }
         })) {
+            this.props.mySalles.full = true
             this.setState((salles, mySalles) => {
                 return {salles: mySalles}
             })

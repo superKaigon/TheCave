@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { SubmissionError } from 'redux-form'
-import {Link} from 'react-router'
-
+import { Link } from 'react-router'
+import Modal from './modal'
 
 
 class Connection extends Component {
@@ -25,36 +25,40 @@ class Connection extends Component {
             </div>
         </div>
 
+
+
     render() {
         const { error, handleSubmit, pristine, reset, submitting } = this.props
         return (
-            <form className='default_margin_top' onSubmit={handleSubmit(this.submit.bind(this))}>
-                <Field
-                    name="firstname"
-                    type="text"
-                    component={this.renderField}
-                    label="Firstname"
-                />
-                <Field
-                    name="password"
-                    type="text"
-                    component={this.renderField}
-                    label="Password"
-                />
-                {error &&
-                    <strong>
-                        {error}
-                    </strong>}
-                <div>
-                    <button type="submit" className='btn btn-secondary' disabled={submitting}>
-                        Log In
+            <Modal>
+                <form className='default_margin_top' onSubmit={handleSubmit(this.submit.bind(this))}>
+                    <Field
+                        name="firstname"
+                        type="text"
+                        component={this.renderField}
+                        label="Firstname"
+                    />
+                    <Field
+                        name="password"
+                        type="text"
+                        component={this.renderField}
+                        label="Password"
+                    />
+                    {error &&
+                        <strong>
+                            {error}
+                        </strong>}
+                    <div>
+                        <button type="submit" className='btn btn-secondary' disabled={submitting}>
+                            Log In
                     </button>
-                    <button type="button" className='btn btn-secondary' disabled={pristine || submitting} onClick={reset}>
-                        Clear Values
+                        <button type="button" className='btn btn-secondary' disabled={pristine || submitting} onClick={reset}>
+                            Clear Values
                     </button>
-                </div>
-                <div><Link to='inscription'><button type="button" className="btn btn-primary">Inscription</button></Link></div>
-            </form>
+                    </div>
+                    <div><Link to='inscription'><button type="button" className="btn btn-primary">Inscription</button></Link></div>
+                </form>
+            </Modal>
         )
     }
     submit = (values) => {

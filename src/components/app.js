@@ -8,8 +8,9 @@ export default class App extends Component {
 			<div>
 				<NavBar/>
 				<div className = 'pageCourante'>
-					<PageCourante/>
+					{this.props.children}
 				</div>
+				
 			</div>
 
 		);

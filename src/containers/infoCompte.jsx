@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link, browserHistory } from 'react-router'
 import { selectUser, selectSalle, selectTable } from '../actions/index'
+import Modal from './modal'
+import Connection from './connection'
 
 class InfoCompte extends Component {
 
@@ -15,7 +17,7 @@ class InfoCompte extends Component {
         if (!user) {
             return (
                 <div>
-                    <Link to='connection'><button type="button" className="btn btn-secondary">Connexion</button></Link>
+                   <Link to='connection'><button type="button" className="btn btn-secondary" onClick = {() => this._onButtonClick} >Connexion</button></Link>
                     <Link to='inscription'><button type="button" className="btn btn-secondary">Inscription</button></Link>
                 </div>
             )
@@ -24,7 +26,7 @@ class InfoCompte extends Component {
             <div>
 
                 <div key={user.lastname}>Bonjour {user.firstname}</div>
-                <button type="button" className="btn btn-secondary" onClick={() => this.resetActive(resetUser, resetTable, resetSalle)}>Déconnexion</button>
+                <Link to='connection'><button type="button" className="btn btn-secondary" onClick={() => this.resetActive(resetUser, resetTable, resetSalle)}>Déconnexion</button></Link>
 
             </div>
         )

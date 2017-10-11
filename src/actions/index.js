@@ -19,11 +19,12 @@ export const selectUser = (user) => {
   }
 }
 
-export const selectStatus = (status) => {
+export const selectAllTables = (tables) => {
   return {
-    type: 'STATUS_SELECTED',
-    payload: status
+    type: 'ALL_TABLES_SELECTED',
+    payload: table
   }
 }
+
 
 
