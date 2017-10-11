@@ -4,26 +4,27 @@ import {
     unmountComponentAtNode
 } from 'react-dom';
 
-export default class Modal extends React.Component {
+export default class extends React.Component {
     static displayName = 'ReactPortal';
 
-/*     static propTypes = {
+    static propTypes = {
         isRendered: PropTypes.bool,
         children: PropTypes.node,
         portalContainer: PropTypes.node
-    }; */
+    };
 
-/*     static defaultProps = {
+    static defaultProps = {
         isRendered: true
     };
 
     state = {
         mountNode: null
-    }; */
+    };
 
     componentDidMount() {
+        if (this.props.isRendered) {
             this._renderPortal();
-        
+        }
     }
 
     componentDidUpdate(prevProps) {

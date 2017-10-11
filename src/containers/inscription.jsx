@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { SubmissionError } from 'redux-form'
+import Modal from './modal'
 
 
 
@@ -27,44 +28,48 @@ class Inscription extends Component {
     render() {
         const { error, handleSubmit, pristine, reset, submitting } = this.props
         return (
-            <form className='default_margin_top' onSubmit={handleSubmit(this.submit.bind(this))}>
-                <Field
-                    name="firstname"
-                    type="text"
-                    component={this.renderField}
-                    label="Firstname"
-                />
-                <Field
-                    name="lastname"
-                    type="text"
-                    component={this.renderField}
-                    label="Lastname"
-                />
-                <Field
-                    name="email"
-                    type="text"
-                    component={this.renderField}
-                    label="Email"
-                />
-                <Field
-                    name="password"
-                    type="text"
-                    component={this.renderField}
-                    label="Password"
-                />
-                {error &&
-                    <strong>
-                        {error}
-                    </strong>}
-                <div>
-                    <button type="submit" className='btn btn-secondary' disabled={submitting}>
-                        Log In
-        </button>
-                    <button type="button" className='btn btn-secondary' disabled={pristine || submitting} onClick={reset}>
-                        Clear Values
-        </button>
+            <Modal>
+                <div className='modal'>
+                    <form className='default_margin_top' onSubmit={handleSubmit(this.submit.bind(this))}>
+                        <Field
+                            name="firstname"
+                            type="text"
+                            component={this.renderField}
+                            label="Firstname"
+                        />
+                        <Field
+                            name="lastname"
+                            type="text"
+                            component={this.renderField}
+                            label="Lastname"
+                        />
+                        <Field
+                            name="email"
+                            type="text"
+                            component={this.renderField}
+                            label="Email"
+                        />
+                        <Field
+                            name="password"
+                            type="text"
+                            component={this.renderField}
+                            label="Password"
+                        />
+                        {error &&
+                            <strong>
+                                {error}
+                            </strong>}
+                        <div>
+                            <button type="submit" className='btn btn-secondary' disabled={submitting}>
+                                Log In
+                            </button>
+                            <button type="button" className='btn btn-secondary' disabled={pristine || submitting} onClick={reset}>
+                                Clear Values
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </Modal>
         )
     }
     submit = (values) => {
@@ -73,20 +78,20 @@ class Inscription extends Component {
             throw new SubmissionError({
                 firstname: 'Ce champ doit être renseigner'
             })
-        }else if (!values.lastname) {
+        } else if (!values.lastname) {
             throw new SubmissionError({
                 lastname: 'Ce champ doit être renseigner'
             })
-        }else if (!values.email) {
+        } else if (!values.email) {
             throw new SubmissionError({
                 email: 'Ce champ doit être renseigner'
             })
-        }else if (!values.password) {
+        } else if (!values.password) {
             throw new SubmissionError({
                 password: 'Ce champ doit être renseigner'
             })
-        }else {
-            const user = {firstname: values.firstname, lastname: values.lastname, email: values.email, password: values.password }
+        } else {
+            const user = { firstname: values.firstname, lastname: values.lastname, email: values.email, password: values.password }
             this.props.selectUser(user)
             browserHistory.push('/')
         }

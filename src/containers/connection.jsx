@@ -30,7 +30,8 @@ class Connection extends Component {
     render() {
         const { error, handleSubmit, pristine, reset, submitting } = this.props
         return (
-            <Modal className = 'modal fade'>
+            <Modal>
+                <div className = 'modal'>
                 <form className='default_margin_top' onSubmit={handleSubmit(this.submit.bind(this))}>
                     <Field
                         name="firstname"
@@ -58,6 +59,7 @@ class Connection extends Component {
                     </div>
                     <div><Link to='inscription'><button type="button" className="btn btn-primary">Inscription</button></Link></div>
                 </form>
+                </div>
             </Modal>
         )
     }
