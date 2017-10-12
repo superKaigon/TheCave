@@ -30,6 +30,7 @@
 
 .container > div > .navbar.row {
 	background-color : black;
+	color : white;
 }
 
 .container > div > .navbar.row > .col-md-4 {

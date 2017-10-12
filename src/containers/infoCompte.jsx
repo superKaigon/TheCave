@@ -22,8 +22,8 @@ class InfoCompte extends Component {
         return (
             <div>
 
-                <div key={user.lastname}>Bonjour {user.firstname}</div>
-                <Link to='connection'><button type="button" className="btn btn-secondary" onClick={() => this.resetActive()}>Déconnexion</button></Link>
+                Bonjour {user.firstname}
+               <button type="button" className="btn btn-secondary" onClick={() => this.resetActive()}>Déconnexion</button>
 
             </div>
         )
@@ -32,11 +32,8 @@ class InfoCompte extends Component {
         this.props.selectUser(null)
         this.props.selectSalle(null)
         this.props.selectTable(null)
-        browserHistory.push('connection')
+        browserHistory.push('salle')
     }
-/*     _onButtonClick () {
-      return <Connection/>
-    } */
 
 }
 
