@@ -6,52 +6,57 @@ import { selectTable } from '../actions/index'
 class LocationList extends Component {
 
     render() {
-        console.log(this.props.myTables)
+        const { salle } = this.props
+        console.log(this.props.salle.tables)
         return (
-            <ul className='col-md-3'>
+            <div className='col-md-12'>
                 {
-                    this.props.myTables.map((table) => {
+                    this.props.salle.tables.map((table) => {
                         return (
-                            <li key={table.name}><button
-                                className='col-md-4 btn btn-secondary'
-                                onClick={() => this.selectTable(table)}
-                                disabled={table.occuped == true}>
-                                {table.name}
-                            </button>
-                            </li>
+                            <div className='col-md-6'>
+                                <ul className='TableList animated fadeInRight'>
+                                    <li key={table.name}>
+                                        <button
+                                            className='btn btn-secondary'
+                                            onClick={() => this.selectTable(table)}
+                                            disabled={table.occuped == true || this.props.myTable != null}>
+                                            {table.name}
+                                            <img src={salle.image} />
+                                        </button>
+                                        <button
+                                            className='btn btn-secondary'
+                                            onClick={() => this.unselectTable(table)}
+                                            disabled={table.occuped == false}>
+                                            Quitter la table
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         )
                     })
                 }
+            </div>
 
-            </ul>
         )
 
     }
 
 
     selectTable(table) {
-        this.props.myTables[table.id - 1].occuped = true
-        this.setState((tables, myTables) => {
-            return { tables: myTables }
-        })
+        this.props.salle.tables[table.id - 1].occuped = true
         this.props.selectTable(table)
-        if (!this.props.myTables.filter((table) => {
-            if (table.occuped == false) {
-                return table
-            }
-        })) {
-            this.props.mySalles.full = true
-            this.setState((salles, mySalles) => {
-                return {salles: mySalles}
-            })
-        }
+    }
+    unselectTable(table) {
+        this.props.salle.tables[table.id - 1].occuped = false
+        this.props.selectTable(null) 
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        myTables: state.tables, 
-        mySalles: state.salles
+        mySalles: state.salles,
+        salle: state.activeSalle,
+        myTable: state.activeTable
     }
 }
 

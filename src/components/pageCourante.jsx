@@ -7,7 +7,7 @@ class PageCourante extends Component {
   render() {
 
     return (
-      <div>
+      <div  className = 'pageCourante animated fadeInUp'>
         {this.props.children}
       </div>
     )

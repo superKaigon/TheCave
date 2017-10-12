@@ -11,7 +11,7 @@ class Salle extends Component {
 
 		if (!salle) {
 			return (
-				<div>
+				<div className='animated fadeInUp'>
 					<NavBarChoixSalle />
 					<div>Sélectionner une salle</div>
 				</div>
@@ -19,36 +19,25 @@ class Salle extends Component {
 		}
 		if (!table) {
 			return (
-				<div>
+				<div className='animated fadeInUp'>
 					<NavBarChoixSalle />
-					<div className='row'>
-						<LocationList />
-						<ul className='col-md-4 listeTable1'>
-							<li><img src={salle.image} /></li>
-							<li><img src={salle.image} /></li>
-						</ul>
-						<ul className='col-md-4 listeTable2'>
-							<li><img src={salle.image} /></li>
-							<li><img src={salle.image} /></li>
-						</ul>
+					<div className='row animated fadeInRight'>
+						<div className='col-md-11'>
+							<LocationList />
+						</div>
 						<div className='col-md-1'>Sélectionnez une table</div>
 					</div>
 				</div>
 			)
 		}
 		return (
-			<div>
+			<div className='animated fadeInUp'>
 				<NavBarChoixSalle />
-				<div className='row'>
-					<LocationList />
-					<ul className='col-md-4 listeTable1'>
-						<li><img src={salle.image} /></li>
-						<li><img src={salle.image} /></li>
-					</ul>
-					<ul className='col-md-4 listeTable2'>
-						<li><img src={salle.image} /></li>
-						<li><img src={salle.image} /></li>
-					</ul>
+				<div className='row animated fadeInRight'>
+					<div className='col-md-11'>
+						<LocationList />
+					</div>
+
 					<div className='col-md-1'>Vous êtes assis en salle {salle.id} à la {table.name}</div>
 				</div>
 			</div>

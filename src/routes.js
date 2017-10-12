@@ -14,11 +14,9 @@ class Routes extends Component {
 		return (
 			<Router history={browserHistory}>
 				<Route path='/' component={App} routes = {Routes}>
-					<Route path = 'pageCourante' component = {PageCourante}>
-						<Route path='/pageCourante/salle' component={Salle}/>
-						<Route path='/pageCourante/weAre' component={WeAre} />
-						<Route path='/pageCourante/contactUs' component={ContactUs} />
-					</Route>
+					<Route path='salle' component={Salle}/>
+					<Route path='weAre' component={WeAre} />
+					<Route path='contactUs' component={ContactUs} />
 					<Route path='connection' component={Connection} />
 					<Route path='inscription' component={Inscription} />
 				</Route>

@@ -19,12 +19,5 @@ export const selectUser = (user) => {
   }
 }
 
-export const selectAllTables = (tables) => {
-  return {
-    type: 'ALL_TABLES_SELECTED',
-    payload: table
-  }
-}
-
 
 

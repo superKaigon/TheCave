@@ -12,29 +12,40 @@
 	height: 10%;
 }
 
-.container > div > .pageCourante {
-	background-color: rgb(0, 0, 0);
+.container > div > .pageCourante.animated.fadeInUp {
+	background-color: rgb(255, 255, 255);
 	height: 90%;
-	color : white;
+	color : black;
+	
 }
 
-.container > div > .pageCourante > div > .row > ul > li {
+
+.container > div >  div > .animated.fadeInUp > .row.animated.fadeInRight > .TableList > li {
 	margin : auto;
-	margin-top: 5em;
-	margin-bottom: 5em;
+	margin-top: 3em;
+	margin-bottom: 3em;
 	list-style-type: none;
 
 }
 
 .container > div > .navbar.row {
-	background-color : white;
+	background-color : black;
 }
 
 .container > div > .navbar.row > .col-md-4 {
 	text-align: -webkit-right;
 }
 
-.container > div > .pageCourante > div > .row > ul > li > img{
+.container > div > div > .animated.fadeInUp > div > nav > div > button {
+	margin: 0px;
+	margin-bottom: 1em;
+}
+
+.container > div > div > .animated.fadeInUp > .row > ul > li {
+	list-style-type: none;
+}
+
+.container > div > div > .animated.fadeInUp > .row > ul > li > img{
 	width: 225px;
 	height: 214px;
 
@@ -45,7 +56,7 @@ body .modal {
 	top: 10%;
 	left:75%;
 	right: 0%;
-	bottom: 65%;
+	bottom: 63%;
 	border: 1px solid #ccc;
 	background: #fff;
 	overflow: auto;
@@ -69,16 +80,16 @@ body .modal {
 		top: 10%;
 		left:75%;
 		right: 0%;
-		bottom: 65%;
+		bottom: 63%;
 	}
   }
 
   body .modal2 {
 	position: fixed;
 	top: 10%;
-	left:65%;
-	right: 10%;
-	bottom: 59%;
+	left:75%;
+	right: 0%;
+	bottom: 50%;
 	border: 1px solid #ccc;
 	background: #fff;
 	overflow: auto;
@@ -87,6 +98,21 @@ body .modal {
 	padding: 20px;
 	display: block;
 	animation-duration: 250ms;
-	animation-name: slidein;
+	animation-name: slidein2;
 	
+  }
+
+  @keyframes slidein2 {
+	from {
+	  left: 75%; 
+	  right: 100%;
+	  top :10%;
+	  bottom:100%;
+	} 
+	to {
+		top: 10%;
+		left:75%;
+		right: 0%;
+		bottom: 50%;
+	}
   }

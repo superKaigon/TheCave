@@ -7,12 +7,13 @@ import { selectSalle, selectTable } from '../actions/index'
 
 class OngletsSalle extends Component {
     render() {
+        const {mySalles} = this.props
         return (
             <nav className='row'>
 
                 <div className='col-md-12'>
                     {
-                        this.props.mySalles.map((salle) => {
+                        mySalles.map((salle) => {
                             return (
                                 <button className='col-md-4 btn btn-secondary'
                                     key={salle.id}
@@ -29,8 +30,7 @@ class OngletsSalle extends Component {
         )
     }
     selectSalle (salle) {
-        this.props.selectSalle(salle),
-        this.props.selectTable(null)
+        this.props.selectSalle(salle)
     }
 
 }
